@@ -19,7 +19,7 @@ step "approve-production-deployment" {
 }
 
 step "deploy-order-service" {
-    name = "Deploy Order Service"
+    name = "Deploy Legacy Order Service"
     properties = {
         Octopus.Action.TargetRoles = "order-svc-v2"
     }
@@ -48,6 +48,7 @@ step "deploy-order-service" {
             Octopus.Action.Package.DownloadOnTentacle = "False"
             Octopus.Action.Package.FeedId = "octopus-server-built-in"
             Octopus.Action.Package.PackageId = "RandomQuotes"
+            Octopus.Action.RunOnServer = "false"
         }
         worker_pool_variable = ""
 
