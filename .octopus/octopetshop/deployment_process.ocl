@@ -18,6 +18,46 @@ step "approve-production-deployment" {
     }
 }
 
+step "update-database" {
+    name = "Update Database"
+    properties = {
+        Octopus.Action.TargetRoles = "order-entry-db"
+    }
+
+    action {
+        properties = {
+            Flyway.Authentication.Method = "usernamepassword"
+            Flyway.Command.BaseLineOnMigrate = "false"
+            Flyway.Command.OutOfOrder = "false"
+            Flyway.Command.Schemas = "adf"
+            Flyway.Command.SkipExecutingMigrations = "false"
+            Flyway.Command.Target = "latest"
+            Flyway.Command.Value = "migrate"
+            Flyway.Database.User = "adsf"
+            Flyway.Database.User.Password = "#{Flyway.License.Key}"
+            Flyway.Executable.Path = "asdf"
+            Flyway.License.Key = "#{Flyway.Database.User.Password}"
+            Flyway.Package.Value = "{\"PackageId\":\"RandomQuotes\",\"FeedId\":\"octopus-server-built-in\"}"
+            Flyway.Target.Url = "dsf"
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Template.Id = "ActionTemplates-2661"
+            Octopus.Action.Template.Version = "11"
+        }
+        worker_pool_variable = ""
+
+        packages "Flyway.Package.Value" {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "RandomQuotes"
+            properties = {
+                Extract = "True"
+                PackageParameterName = "Flyway.Package.Value"
+                SelectionMode = "deferred"
+            }
+        }
+    }
+}
+
 step "deploy-order-service" {
     name = "Deploy Legacy Order Service"
     properties = {
