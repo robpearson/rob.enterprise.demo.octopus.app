@@ -18,71 +18,6 @@ step "approve-production-deployment" {
     }
 }
 
-step "send-completion-notification" {
-    condition = "Variable"
-    name = "Send Completion Notification"
-    properties = {
-        Octopus.Step.ConditionVariableExpression = "#{unless Octopus.Deployment.Trigger.Id}True#{/unless}"
-    }
-
-    action {
-        action_type = "Octopus.Email"
-        environments = ["production"]
-        notes = "Email the deployer that the deployment has been completed."
-        properties = {
-            Octopus.Action.Email.Body = "#{Octopus.Release.Notes}"
-            Octopus.Action.Email.IsHtml = "True"
-            Octopus.Action.Email.Subject = "Release #{Octopus.Release.Number} has been deployed to #{Octopus.Environment.Name}"
-            Octopus.Action.Email.To = "#{Octopus.Deployment.CreatedBy.EmailAddress}"
-            Octopus.Action.RunOnServer = "false"
-        }
-    }
-}
-
-step "deploy-order-service" {
-    name = "Deploy Order Service"
-    properties = {
-        Octopus.Action.TargetRoles = "octofx-web"
-    }
-
-    action {
-        action_type = "Octopus.IIS"
-        properties = {
-            Octopus.Action.EnabledFeatures = ",Octopus.Features.IISWebSite,Octopus.Features.ConfigurationTransforms,Octopus.Features.ConfigurationVariables"
-            Octopus.Action.IISWebSite.ApplicationPoolFrameworkVersion = "v4.0"
-            Octopus.Action.IISWebSite.ApplicationPoolIdentityType = "ApplicationPoolIdentity"
-            Octopus.Action.IISWebSite.ApplicationPoolName = "adsf"
-            Octopus.Action.IISWebSite.Bindings = "[{\"protocol\":\"http\",\"port\":\"80\",\"host\":\"\",\"thumbprint\":null,\"certificateVariable\":null,\"requireSni\":\"False\",\"enabled\":\"True\"}]"
-            Octopus.Action.IISWebSite.CreateOrUpdateWebSite = "True"
-            Octopus.Action.IISWebSite.DeploymentType = "webSite"
-            Octopus.Action.IISWebSite.EnableAnonymousAuthentication = "True"
-            Octopus.Action.IISWebSite.EnableBasicAuthentication = "False"
-            Octopus.Action.IISWebSite.EnableWindowsAuthentication = "False"
-            Octopus.Action.IISWebSite.StartApplicationPool = "True"
-            Octopus.Action.IISWebSite.StartWebSite = "True"
-            Octopus.Action.IISWebSite.WebApplication.ApplicationPoolFrameworkVersion = "v4.0"
-            Octopus.Action.IISWebSite.WebApplication.ApplicationPoolIdentityType = "ApplicationPoolIdentity"
-            Octopus.Action.IISWebSite.WebRootType = "packageRoot"
-            Octopus.Action.IISWebSite.WebSiteName = "asdf"
-            Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles = "True"
-            Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings = "True"
-            Octopus.Action.Package.DownloadOnTentacle = "False"
-            Octopus.Action.Package.FeedId = "octopus-server-built-in"
-            Octopus.Action.Package.PackageId = "RandomQuotes"
-        }
-        worker_pool_variable = ""
-
-        packages {
-            acquisition_location = "Server"
-            feed = "octopus-server-built-in"
-            package_id = "RandomQuotes"
-            properties = {
-                SelectionMode = "immediate"
-            }
-        }
-    }
-}
-
 step "updated-database" {
     name = "Updated Database"
     properties = {
@@ -117,6 +52,101 @@ step "updated-database" {
                 Extract = "True"
                 PackageParameterName = "Flyway.Package.Value"
                 SelectionMode = "deferred"
+            }
+        }
+    }
+}
+
+step "deploy-order-service" {
+    name = "Deploy Order Service"
+    properties = {
+        Octopus.Action.TargetRoles = "octofx-web"
+    }
+
+    action {
+        action_type = "Octopus.IIS"
+        properties = {
+            Octopus.Action.EnabledFeatures = ",Octopus.Features.IISWebSite,Octopus.Features.ConfigurationTransforms,Octopus.Features.ConfigurationVariables"
+            Octopus.Action.IISWebSite.ApplicationPoolFrameworkVersion = "v4.0"
+            Octopus.Action.IISWebSite.ApplicationPoolIdentityType = "ApplicationPoolIdentity"
+            Octopus.Action.IISWebSite.ApplicationPoolName = "adsf"
+            Octopus.Action.IISWebSite.Bindings = "[{\"protocol\":\"http\",\"port\":\"80\",\"host\":\"\",\"thumbprint\":null,\"certificateVariable\":null,\"requireSni\":\"False\",\"enabled\":\"True\"}]"
+            Octopus.Action.IISWebSite.CreateOrUpdateWebSite = "True"
+            Octopus.Action.IISWebSite.DeploymentType = "webSite"
+            Octopus.Action.IISWebSite.EnableAnonymousAuthentication = "True"
+            Octopus.Action.IISWebSite.EnableBasicAuthentication = "False"
+            Octopus.Action.IISWebSite.EnableWindowsAuthentication = "False"
+            Octopus.Action.IISWebSite.StartApplicationPool = "True"
+            Octopus.Action.IISWebSite.StartWebSite = "True"
+            Octopus.Action.IISWebSite.WebApplication.ApplicationPoolFrameworkVersion = "v4.0"
+            Octopus.Action.IISWebSite.WebApplication.ApplicationPoolIdentityType = "ApplicationPoolIdentity"
+            Octopus.Action.IISWebSite.WebRootType = "packageRoot"
+            Octopus.Action.IISWebSite.WebSiteName = "asdf"
+            Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles = "True"
+            Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings = "True"
+            Octopus.Action.Package.DownloadOnTentacle = "False"
+            Octopus.Action.Package.FeedId = "octopus-server-built-in"
+            Octopus.Action.Package.PackageId = "RandomQuotes"
+            Octopus.Action.RunOnServer = "false"
+        }
+        worker_pool_variable = ""
+
+        packages {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "RandomQuotes"
+            properties = {
+                SelectionMode = "immediate"
+            }
+        }
+    }
+}
+
+step "send-completion-notification" {
+    condition = "Variable"
+    name = "Send Completion Notification"
+    properties = {
+        Octopus.Step.ConditionVariableExpression = "#{unless Octopus.Deployment.Trigger.Id}True#{/unless}"
+    }
+
+    action {
+        action_type = "Octopus.Email"
+        environments = ["production"]
+        notes = "Email the deployer that the deployment has been completed."
+        properties = {
+            Octopus.Action.Email.Body = "#{Octopus.Release.Notes}"
+            Octopus.Action.Email.IsHtml = "True"
+            Octopus.Action.Email.Subject = "Release #{Octopus.Release.Number} has been deployed to #{Octopus.Environment.Name}"
+            Octopus.Action.Email.To = "#{Octopus.Deployment.CreatedBy.EmailAddress}"
+            Octopus.Action.RunOnServer = "false"
+        }
+    }
+}
+
+step "deploy-desktop-application" {
+    name = "Deploy Desktop Application"
+    properties = {
+        Octopus.Action.TargetRoles = "order-entry-desktops"
+    }
+
+    action {
+        action_type = "Octopus.TentaclePackage"
+        properties = {
+            Octopus.Action.EnabledFeatures = ",Octopus.Features.ConfigurationTransforms,Octopus.Features.ConfigurationVariables"
+            Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles = "True"
+            Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings = "True"
+            Octopus.Action.Package.DownloadOnTentacle = "False"
+            Octopus.Action.Package.FeedId = "octopus-server-built-in"
+            Octopus.Action.Package.PackageId = "RandomQuotes"
+        }
+        worker_pool_variable = ""
+
+        packages {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "RandomQuotes"
+            properties = {
+                SelectionMode = "immediate"
             }
         }
     }
