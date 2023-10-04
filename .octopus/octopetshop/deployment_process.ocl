@@ -102,6 +102,36 @@ step "deploy-order-service" {
     }
 }
 
+step "deploy-desktop-application" {
+    name = "Deploy Desktop Application"
+    properties = {
+        Octopus.Action.TargetRoles = "order-entry-desktops"
+    }
+
+    action {
+        action_type = "Octopus.TentaclePackage"
+        properties = {
+            Octopus.Action.EnabledFeatures = ",Octopus.Features.ConfigurationTransforms,Octopus.Features.ConfigurationVariables"
+            Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles = "True"
+            Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings = "True"
+            Octopus.Action.Package.DownloadOnTentacle = "False"
+            Octopus.Action.Package.FeedId = "octopus-server-built-in"
+            Octopus.Action.Package.PackageId = "RandomQuotes"
+            Octopus.Action.RunOnServer = "false"
+        }
+        worker_pool_variable = ""
+
+        packages {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "RandomQuotes"
+            properties = {
+                SelectionMode = "immediate"
+            }
+        }
+    }
+}
+
 step "send-completion-notification" {
     condition = "Variable"
     name = "Send Completion Notification"
@@ -119,35 +149,6 @@ step "send-completion-notification" {
             Octopus.Action.Email.Subject = "Release #{Octopus.Release.Number} has been deployed to #{Octopus.Environment.Name}"
             Octopus.Action.Email.To = "#{Octopus.Deployment.CreatedBy.EmailAddress}"
             Octopus.Action.RunOnServer = "false"
-        }
-    }
-}
-
-step "deploy-desktop-application" {
-    name = "Deploy Desktop Application"
-    properties = {
-        Octopus.Action.TargetRoles = "order-entry-desktops"
-    }
-
-    action {
-        action_type = "Octopus.TentaclePackage"
-        properties = {
-            Octopus.Action.EnabledFeatures = ",Octopus.Features.ConfigurationTransforms,Octopus.Features.ConfigurationVariables"
-            Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles = "True"
-            Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings = "True"
-            Octopus.Action.Package.DownloadOnTentacle = "False"
-            Octopus.Action.Package.FeedId = "octopus-server-built-in"
-            Octopus.Action.Package.PackageId = "RandomQuotes"
-        }
-        worker_pool_variable = ""
-
-        packages {
-            acquisition_location = "Server"
-            feed = "octopus-server-built-in"
-            package_id = "RandomQuotes"
-            properties = {
-                SelectionMode = "immediate"
-            }
         }
     }
 }
