@@ -105,7 +105,7 @@ step "deploy-order-service" {
 }
 
 step "deploy-desktop-application" {
-    name = "Deploy Desktop Application"
+    name = "Deploy Legacy Desktop Application"
     properties = {
         Octopus.Action.TargetRoles = "order-entry-desktops"
     }
