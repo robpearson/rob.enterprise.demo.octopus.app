@@ -112,6 +112,7 @@ step "deploy-desktop-application" {
 
     action {
         action_type = "Octopus.TentaclePackage"
+        notes = "Deploy Order Entry desktop application to select desktops."
         properties = {
             Octopus.Action.EnabledFeatures = ",Octopus.Features.ConfigurationTransforms,Octopus.Features.ConfigurationVariables"
             Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles = "True"
