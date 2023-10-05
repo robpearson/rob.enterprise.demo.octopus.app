@@ -66,6 +66,7 @@ step "deploy-order-service" {
 
     action {
         action_type = "Octopus.IIS"
+        notes = "Deploy Order Service to Windows Server running IIS."
         properties = {
             Octopus.Action.EnabledFeatures = ",Octopus.Features.IISWebSite,Octopus.Features.ConfigurationTransforms,Octopus.Features.ConfigurationVariables"
             Octopus.Action.IISWebSite.ApplicationPoolFrameworkVersion = "v4.0"
