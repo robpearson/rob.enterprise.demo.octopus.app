@@ -25,6 +25,7 @@ step "updated-database" {
     }
 
     action {
+        notes = "Apply Flyway database migrations against target database."
         properties = {
             Flyway.Authentication.Method = "usernamepassword"
             Flyway.Command.BaseLineOnMigrate = "false"
