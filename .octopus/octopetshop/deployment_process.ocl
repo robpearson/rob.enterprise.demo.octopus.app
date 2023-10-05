@@ -59,7 +59,7 @@ step "updated-database" {
 }
 
 step "deploy-order-service" {
-    name = "Deploy Order Service"
+    name = "Deploy Legacy Order Service"
     properties = {
         Octopus.Action.TargetRoles = "octofx-web"
     }
