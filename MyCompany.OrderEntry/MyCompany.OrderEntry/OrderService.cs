@@ -12,4 +12,10 @@ public class OrderService
         return orderId;
     }
 
+    public string ArchiveOrder(string orderId)
+    {
+        var status = string.Format("Order ({{orderId}}) archived.");
+        return status;
+    }
+
 }

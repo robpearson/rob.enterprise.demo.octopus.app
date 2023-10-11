@@ -14,4 +14,12 @@ public class Tests
         var orderId = service.AddOrder();
         Assert.That(orderId, Is.EqualTo("ORDER-1xx"));
     }
+
+    [Test]
+    public void SaveArchiveOrderHappyPath()
+    {
+        var service = new OrderService();
+        var status = service.ArchiveOrder("Order 1234");
+        Assert.That(status, Is.Not.Empty);
+    }
 }
