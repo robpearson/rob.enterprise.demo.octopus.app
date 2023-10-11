@@ -61,7 +61,7 @@ step "updated-database" {
 step "deploy-order-service" {
     name = "Deploy Order Service"
     properties = {
-        Octopus.Action.TargetRoles = "order-entry-db"
+        Octopus.Action.TargetRoles = "order-entry"
     }
 
     action {
