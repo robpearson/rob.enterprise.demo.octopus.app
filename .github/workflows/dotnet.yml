@@ -31,9 +31,6 @@ jobs:
       run: dotnet build --no-restore ./MyCompany.OrderEntry
     - name: Test
       run: dotnet test --no-build --verbosity normal ./MyCompany.OrderEntry
-    - name: Build the Docker image
-      run: cd MyCompany.OrderEntry; docker build . --file ./Dockerfile --tag aptumwebinar.azurecr.io/orderentry:3.0.${{github.run_number}}
-
     - name: Create a release in Octopus Deploy 🐙
       uses: OctopusDeploy/create-release-action@v3
       with:
