@@ -21,7 +21,7 @@ step "approve-production-deployment" {
 step "updated-database" {
     name = "Update Database"
     properties = {
-        Octopus.Action.TargetRoles = "order-entry-db"
+        Octopus.Action.TargetRoles = "order-entry-db-v3"
     }
 
     action {
