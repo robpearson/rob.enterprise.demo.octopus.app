@@ -29,6 +29,17 @@ step "update-database" {
             Octopus.Action.Script.Syntax = "PowerShell"
         }
         worker_pool = "hosted-windows"
+
+        packages "OrderEntryDb" {
+            acquisition_location = "Server"
+            feed = "octopus-server-built-in"
+            package_id = "OrderEntryDb"
+            properties = {
+                Extract = "True"
+                Purpose = ""
+                SelectionMode = "immediate"
+            }
+        }
     }
 }
 
@@ -62,7 +73,7 @@ step "deploy-order-service" {
             Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings = "True"
             Octopus.Action.Package.DownloadOnTentacle = "False"
             Octopus.Action.Package.FeedId = "octopus-server-built-in"
-            Octopus.Action.Package.PackageId = "RandomQuotes"
+            Octopus.Action.Package.PackageId = "OrderEntryService"
             Octopus.Action.RunOnServer = "false"
         }
         worker_pool_variable = ""
@@ -70,7 +81,7 @@ step "deploy-order-service" {
         packages {
             acquisition_location = "Server"
             feed = "octopus-server-built-in"
-            package_id = "RandomQuotes"
+            package_id = "OrderEntryService"
             properties = {
                 SelectionMode = "immediate"
             }
@@ -81,19 +92,18 @@ step "deploy-order-service" {
 step "deploy-desktop-application" {
     name = "Deploy Legacy Desktop Application"
     properties = {
-        Octopus.Action.TargetRoles = "order-entry-desktops"
+        Octopus.Action.TargetRoles = "order-entry-desktops-v3"
     }
 
     action {
         action_type = "Octopus.TentaclePackage"
         notes = "Deploy Order Entry desktop application to select desktops."
         properties = {
-            Octopus.Action.EnabledFeatures = ",Octopus.Features.ConfigurationTransforms,Octopus.Features.ConfigurationVariables"
-            Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles = "True"
+            Octopus.Action.EnabledFeatures = "Octopus.Features.ConfigurationVariables"
             Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings = "True"
             Octopus.Action.Package.DownloadOnTentacle = "False"
             Octopus.Action.Package.FeedId = "octopus-server-built-in"
-            Octopus.Action.Package.PackageId = "RandomQuotes"
+            Octopus.Action.Package.PackageId = "OrderEntryDesktop"
             Octopus.Action.RunOnServer = "false"
         }
         worker_pool_variable = ""
@@ -101,7 +111,7 @@ step "deploy-desktop-application" {
         packages {
             acquisition_location = "Server"
             feed = "octopus-server-built-in"
-            package_id = "RandomQuotes"
+            package_id = "OrderEntryDesktop"
             properties = {
                 SelectionMode = "immediate"
             }
