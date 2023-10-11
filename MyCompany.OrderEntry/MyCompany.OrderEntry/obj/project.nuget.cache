@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r7emaFX2lSlvdXJQ4yAq2KtFquDLGmsCb4keKzdKxWbRmD/bP6uLibyCa4f4hk8/hfk0kgqZLw/No9Ka8CqpXg==",
+  "dgSpecHash": "6zEFizIzSs+sAjiHt8RfixdCGGRHuYIfMs5FWRYysFPl49x0aYhi8r2PR3rLd4uMgR67zJ4wfU44Ob3VNkioOg==",
   "success": true,
-  "projectFilePath": "/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/MyCompany.OrderEntry.csproj",
+  "projectFilePath": "/Users/rob/Dev/rob.enterprise.demo.octopus.app/MyCompany.OrderEntry/MyCompany.OrderEntry/MyCompany.OrderEntry.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

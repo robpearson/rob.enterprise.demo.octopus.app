@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry.Test/MyCompany.OrderEntry.Test.csproj": {}
+    "/Users/rob/Dev/rob.enterprise.demo.octopus.app/MyCompany.OrderEntry/MyCompany.OrderEntry.Test/MyCompany.OrderEntry.Test.csproj": {}
   },
   "projects": {
-    "/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry.Test/MyCompany.OrderEntry.Test.csproj": {
+    "/Users/rob/Dev/rob.enterprise.demo.octopus.app/MyCompany.OrderEntry/MyCompany.OrderEntry.Test/MyCompany.OrderEntry.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry.Test/MyCompany.OrderEntry.Test.csproj",
+        "projectUniqueName": "/Users/rob/Dev/rob.enterprise.demo.octopus.app/MyCompany.OrderEntry/MyCompany.OrderEntry.Test/MyCompany.OrderEntry.Test.csproj",
         "projectName": "MyCompany.OrderEntry.Test",
-        "projectPath": "/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry.Test/MyCompany.OrderEntry.Test.csproj",
+        "projectPath": "/Users/rob/Dev/rob.enterprise.demo.octopus.app/MyCompany.OrderEntry/MyCompany.OrderEntry.Test/MyCompany.OrderEntry.Test.csproj",
         "packagesPath": "/Users/rob/.nuget/packages/",
-        "outputPath": "/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry.Test/obj/",
+        "outputPath": "/Users/rob/Dev/rob.enterprise.demo.octopus.app/MyCompany.OrderEntry/MyCompany.OrderEntry.Test/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/rob/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/MyCompany.OrderEntry.csproj": {
-                "projectPath": "/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/MyCompany.OrderEntry.csproj"
+              "/Users/rob/Dev/rob.enterprise.demo.octopus.app/MyCompany.OrderEntry/MyCompany.OrderEntry/MyCompany.OrderEntry.csproj": {
+                "projectPath": "/Users/rob/Dev/rob.enterprise.demo.octopus.app/MyCompany.OrderEntry/MyCompany.OrderEntry/MyCompany.OrderEntry.csproj"
               }
             }
           }
@@ -83,14 +83,14 @@
         }
       }
     },
-    "/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/MyCompany.OrderEntry.csproj": {
+    "/Users/rob/Dev/rob.enterprise.demo.octopus.app/MyCompany.OrderEntry/MyCompany.OrderEntry/MyCompany.OrderEntry.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/MyCompany.OrderEntry.csproj",
+        "projectUniqueName": "/Users/rob/Dev/rob.enterprise.demo.octopus.app/MyCompany.OrderEntry/MyCompany.OrderEntry/MyCompany.OrderEntry.csproj",
         "projectName": "MyCompany.OrderEntry",
-        "projectPath": "/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/MyCompany.OrderEntry.csproj",
+        "projectPath": "/Users/rob/Dev/rob.enterprise.demo.octopus.app/MyCompany.OrderEntry/MyCompany.OrderEntry/MyCompany.OrderEntry.csproj",
         "packagesPath": "/Users/rob/.nuget/packages/",
-        "outputPath": "/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/obj/",
+        "outputPath": "/Users/rob/Dev/rob.enterprise.demo.octopus.app/MyCompany.OrderEntry/MyCompany.OrderEntry/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/rob/.nuget/NuGet/NuGet.Config"
