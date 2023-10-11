@@ -179,7 +179,7 @@ step "create-web-app-service" {
 }
 
 step "deploy-web-app-containers" {
-    name = "Deploy Web App containers"
+    name = "Deploy Web App Container"
     properties = {
         Octopus.Action.TargetRoles = "demo-k8s-cluster"
     }
