@@ -46,7 +46,7 @@ step "update-database" {
 step "deploy-order-service" {
     name = "Deploy Legacy Order Service"
     properties = {
-        Octopus.Action.TargetRoles = "octofx-web"
+        Octopus.Action.TargetRoles = "order-entry-v3"
     }
 
     action {
@@ -56,7 +56,7 @@ step "deploy-order-service" {
             Octopus.Action.EnabledFeatures = ",Octopus.Features.IISWebSite,Octopus.Features.ConfigurationTransforms,Octopus.Features.ConfigurationVariables"
             Octopus.Action.IISWebSite.ApplicationPoolFrameworkVersion = "v4.0"
             Octopus.Action.IISWebSite.ApplicationPoolIdentityType = "ApplicationPoolIdentity"
-            Octopus.Action.IISWebSite.ApplicationPoolName = "adsf"
+            Octopus.Action.IISWebSite.ApplicationPoolName = "OrderEntry-Pool-#{Octopus.Environment.Name}"
             Octopus.Action.IISWebSite.Bindings = "[{\"protocol\":\"http\",\"port\":\"80\",\"host\":\"\",\"thumbprint\":null,\"certificateVariable\":null,\"requireSni\":\"False\",\"enabled\":\"True\"}]"
             Octopus.Action.IISWebSite.CreateOrUpdateWebSite = "True"
             Octopus.Action.IISWebSite.DeploymentType = "webSite"
@@ -68,7 +68,7 @@ step "deploy-order-service" {
             Octopus.Action.IISWebSite.WebApplication.ApplicationPoolFrameworkVersion = "v4.0"
             Octopus.Action.IISWebSite.WebApplication.ApplicationPoolIdentityType = "ApplicationPoolIdentity"
             Octopus.Action.IISWebSite.WebRootType = "packageRoot"
-            Octopus.Action.IISWebSite.WebSiteName = "asdf"
+            Octopus.Action.IISWebSite.WebSiteName = "OrderEntry-#{Octopus.Environment.Name}"
             Octopus.Action.Package.AutomaticallyRunConfigurationTransformationFiles = "True"
             Octopus.Action.Package.AutomaticallyUpdateAppSettingsAndConnectionStrings = "True"
             Octopus.Action.Package.DownloadOnTentacle = "False"
