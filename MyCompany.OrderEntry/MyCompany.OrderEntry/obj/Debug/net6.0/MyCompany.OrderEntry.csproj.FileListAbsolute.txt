@@ -1,0 +1,12 @@
+/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/bin/Debug/net6.0/MyCompany.OrderEntry.deps.json
+/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/bin/Debug/net6.0/MyCompany.OrderEntry.dll
+/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/bin/Debug/net6.0/MyCompany.OrderEntry.pdb
+/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/obj/Debug/net6.0/MyCompany.OrderEntry.csproj.AssemblyReference.cache
+/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/obj/Debug/net6.0/MyCompany.OrderEntry.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/obj/Debug/net6.0/MyCompany.OrderEntry.AssemblyInfoInputs.cache
+/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/obj/Debug/net6.0/MyCompany.OrderEntry.AssemblyInfo.cs
+/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/obj/Debug/net6.0/MyCompany.OrderEntry.csproj.CoreCompileInputs.cache
+/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/obj/Debug/net6.0/MyCompany.OrderEntry.dll
+/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/obj/Debug/net6.0/refint/MyCompany.OrderEntry.dll
+/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/obj/Debug/net6.0/MyCompany.OrderEntry.pdb
+/Users/rob/Dev/MyCompany.OrderEntry/MyCompany.OrderEntry/obj/Debug/net6.0/ref/MyCompany.OrderEntry.dll
